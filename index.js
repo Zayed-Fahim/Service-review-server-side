@@ -39,6 +39,14 @@ async function run() {
         const service = await servicesCollection.findOne(query);
         res.send(service)
       });
+    //post data to database
+    app.post('/services/service/reviews', async (req, res) => {
+      const servicesCollection = client.db('deliveryDotCom').collection('reviews'); 
+      const user = req.body;
+      console.log(user);
+      const result = await servicesCollection.insertOne(user);
+      res.send(result);
+    })
     }
     finally {
         
