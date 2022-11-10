@@ -32,7 +32,7 @@ async function run() {
             const services = await cursor.toArray();
             res.send(services)
         });
-      
+  //show data by individual id from mongodb    
       app.get("/services/:id", async (req, res) => {
         const id = req.params.id;
         const query = { _id: ObjectId(id) };
