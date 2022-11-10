@@ -46,7 +46,16 @@ async function run() {
       console.log(user);
       const result = await servicesCollection.insertOne(user);
       res.send(result);
-    })
+    }),
+      app.get('/services/service/reviews', async (req, res) => {
+        const servicesCollection = client
+          .db("deliveryDotCom")
+          .collection("reviews");
+            const query = {}
+            const cursor = servicesCollection.find(query).limit(4).sort({_id: -1});
+            const services = await cursor.toArray();
+            res.send(services)
+        });
     }
     finally {
         
