@@ -43,9 +43,7 @@ async function run() {
       const id = req.params.id;
       const query = {_id: ObjectId(id)}
       const user = req.body;
-      console.log(user);
-      const result = await servicesCollection.insertMany(query,user);
-      res.send(result);
+      
     });
     }
     finally {
