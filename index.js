@@ -38,13 +38,6 @@ async function run() {
         const service = await servicesCollection.findOne(query);
         res.send(service)
       });
-    app.post("/services/:id/reviews", async (req, res) => {
-      const servicesCollection = client.db('deliveryDotCom').collection('reviews');
-      const id = req.params.id;
-      const query = {_id: ObjectId(id)}
-      const user = req.body;
-      
-    });
     }
     finally {
         
@@ -52,39 +45,6 @@ async function run() {
 }
 run()
 .catch(error => console.error(error))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.get("/", (req, res) => {
   res.send("Server is running");
